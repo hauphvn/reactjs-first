@@ -19,62 +19,112 @@
     // ulDom.appendChild(liDom2);
     // document.body.appendChild(ulDom);
     // react
-    const arr = ['Javascript', 'Java'];
-    const ul = (
-        <ul>
-            {arr.map((item, index) => <li key={index}> {item} </li>)}
-        </ul>
-    )
+    // const arr = ['Javascript', 'Java'];
+    // const ul = (
+    //     <ul>
+    //         {arr.map((item, index) => <li key={index}> {item} </li>)}
+    //     </ul>
+    // )
+    //
+    // function Header() {
+    //     return (
+    //         <div className="header">Header</div>
+    //     )
+    // }
+    //
+    // function Content() {
+    //     return (
+    //         <div className="content">Content</div>
+    //     )
+    // }
+    //
+    // function Footer() {
+    //     return (
+    //         <div className="footer">Footer</div>
+    //     )
+    // }
+    //
+    // function PostItem () {
+    //     return (
+    //         <div className="post-item">
+    //             <img src="https://via.placeholder.com/150" alt="imgHolder"/>
+    //             <h2 className="post-title">Lorem ipsum dolor sit amet</h2>
+    //             <p className="post-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda atque dignissimos earum ex in libero minima modi nesciunt perspiciatis recusandae temporibus voluptates. Architecto aut blanditiis in modi nam quibusdam?</p>
+    //             <p className="post-published">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic natus perspiciatis quo sit sunt voluptatem! At beatae commodi, debitis dolorem eos esse eveniet ipsa magni quidem repellat tempore.</p>
+    //         </div>
+    //     )
+    // }
+    //
+    // const app = (
+    //     <div className="wrapper">
+    //         <Header/>
+    //        <PostItem/>
+    //        <PostItem/>
+    //        <PostItem/>
+    //         <Footer/>
+    //     </div>
+    // );
+    //
+    // // const ulReact = React.createElement(
+    // //     ul,
+    // //     null,
+    // //     React.createElement('li', null, 'Javascript'),
+    // //     React.createElement('li', null, 'Java')
+    // // );
+    //
+    // const root = document.getElementById('root');
+    // ReactDOM.render(app, root);
 
-    function Header() {
-        return (
-            <div className="header">Header</div>
-        )
-    }
-
-    function Content() {
-        return (
-            <div className="content">Content</div>
-        )
-    }
-
-    function Footer() {
-        return (
-            <div className="footer">Footer</div>
-        )
-    }
-
-    function PostItem () {
+    // -----------------------------------Props
+    function PostItem({
+                          img,
+                          title,
+                          desc,
+                          published,
+                          callback = () => {
+                          }
+                      }) {
         return (
             <div className="post-item">
-                <img src="https://via.placeholder.com/150" alt="imgHolder"/>
-                <h2 className="post-title">Lorem ipsum dolor sit amet</h2>
-                <p className="post-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda atque dignissimos earum ex in libero minima modi nesciunt perspiciatis recusandae temporibus voluptates. Architecto aut blanditiis in modi nam quibusdam?</p>
-                <p className="post-published">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic natus perspiciatis quo sit sunt voluptatem! At beatae commodi, debitis dolorem eos esse eveniet ipsa magni quidem repellat tempore.</p>
+                <img src={img} alt={title}/>
+                <h2 className="post-title">{title}</h2>
+                <p className="post-desc">{desc}</p>
+                <p className="post-published">{published}</p>
             </div>
         )
     }
 
-    const app = (
-        <div className="wrapper">
-            <Header/>
-           <PostItem/>
-           <PostItem/>
-           <PostItem/>
-            <Footer/>
-        </div>
-    );
-    console.log(app)
+    function App() {
+        return (
+            <div id="wrapper">
+                <PostItem
+                    callback
+                    img='https://via.placeholder.com/150'
+                    title='Lorem ipsum dolor sit amet'
+                    desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda atque dignissimos earum ex in libero minima modi nesciunt perspiciatis recusandae temporibus voluptates. Architecto aut blanditiis in modi nam quibusdam'
+                    published='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic natus perspiciatis quo sit sunt voluptatem! At beatae commodi, debitis dolorem eos esse eveniet ipsa magni quidem repellat tempore'
+                />
+                <hr/>
+                <PostItem
+                    img='https://via.placeholder.com/150'
+                    title='Lorem ipsum dolor sit amet'
+                    desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda atque dignissimos earum ex in libero minima modi nesciunt perspiciatis recusandae temporibus voluptates. Architecto aut blanditiis in modi nam quibusdam'
+                    published='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic natus perspiciatis quo sit sunt voluptatem! At beatae commodi, debitis dolorem eos esse eveniet ipsa magni quidem repellat tempore'
+                />
+                <hr/>
+                <PostItem
+                    img='https://via.placeholder.com/150'
+                    title='Lorem ipsum dolor sit amet'
+                    desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda atque dignissimos earum ex in libero minima modi nesciunt perspiciatis recusandae temporibus voluptates. Architecto aut blanditiis in modi nam quibusdam'
+                    published='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic natus perspiciatis quo sit sunt voluptatem! At beatae commodi, debitis dolorem eos esse eveniet ipsa magni quidem repellat tempore'
+                />
+            </div>
+        )
+    }
 
-    // const ulReact = React.createElement(
-    //     ul,
-    //     null,
-    //     React.createElement('li', null, 'Javascript'),
-    //     React.createElement('li', null, 'Java')
-    // );
+    ReactDOM.render(<App/>, document.getElementById('root'));
+    // -----------------------------------End Props
 
-    const root = document.getElementById('root');
-    ReactDOM.render(app, root);
 </script>
 </body>
 </html>
