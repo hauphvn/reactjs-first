@@ -76,54 +76,386 @@
     // ReactDOM.render(app, root);
 
     // -----------------------------------Props
-    function PostItem({
-                          img,
-                          title,
-                          desc,
-                          published,
-                          callback = () => {
-                          }
-                      }) {
+    // function PostItem({
+    //                       img,
+    //                       title,
+    //                       desc,
+    //                       published,
+    //                       callback = () => {
+    //                       }
+    //                   }) {
+    //     return (
+    //         <div className="post-item">
+    //             <img src={img} alt={title}/>
+    //             <h2 className="post-title">{title}</h2>
+    //             <p className="post-desc">{desc}</p>
+    //             <p className="post-published">{published}</p>
+    //         </div>
+    //     )
+    // }
+
+    // function App() {
+    //     return (
+    //         <div id="wrapper">
+    //             <PostItem
+    //                 callback
+    //                 img='https://via.placeholder.com/150'
+    //                 title='Lorem ipsum dolor sit amet'
+    //                 desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda atque dignissimos earum ex in libero minima modi nesciunt perspiciatis recusandae temporibus voluptates. Architecto aut blanditiis in modi nam quibusdam'
+    //                 published='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic natus perspiciatis quo sit sunt voluptatem! At beatae commodi, debitis dolorem eos esse eveniet ipsa magni quidem repellat tempore'
+    //             />
+    //             <hr/>
+    //             <PostItem
+    //                 img='https://via.placeholder.com/150'
+    //                 title='Lorem ipsum dolor sit amet'
+    //                 desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda atque dignissimos earum ex in libero minima modi nesciunt perspiciatis recusandae temporibus voluptates. Architecto aut blanditiis in modi nam quibusdam'
+    //                 published='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic natus perspiciatis quo sit sunt voluptatem! At beatae commodi, debitis dolorem eos esse eveniet ipsa magni quidem repellat tempore'
+    //             />
+    //             <hr/>
+    //             <PostItem
+    //                 img='https://via.placeholder.com/150'
+    //                 title='Lorem ipsum dolor sit amet'
+    //                 desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda atque dignissimos earum ex in libero minima modi nesciunt perspiciatis recusandae temporibus voluptates. Architecto aut blanditiis in modi nam quibusdam'
+    //                 published='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic natus perspiciatis quo sit sunt voluptatem! At beatae commodi, debitis dolorem eos esse eveniet ipsa magni quidem repellat tempore'
+    //             />
+    //         </div>
+    //     )
+    // }
+    //
+    // ReactDOM.render(<App/>, document.getElementById('root'));
+    // -----------------------------------End Props
+
+    // --------------------------------------DOM Event, JSX
+
+    // const course = [
+    //     {
+    //         "_id": "61a97072ce1a532a894bd4d3",
+    //         "index": 0,
+    //         "guid": "b88fe913-427b-4c41-b503-a54bf0726ec3",
+    //         "isActive": false,
+    //         "balance": "$3,657.83",
+    //         "picture": "http://placehold.it/32x32",
+    //         "age": 26,
+    //         "eyeColor": "blue",
+    //         "name": "Crosby Bond",
+    //         "gender": "male",
+    //         "company": "BUZZNESS",
+    //         "email": "crosbybond@buzzness.com",
+    //         "phone": "+1 (906) 546-3112",
+    //         "address": "981 Bond Street, Succasunna, Palau, 5421",
+    //         "about": "Ea adipisicing dolore et nostrud esse incididunt aute qui duis anim dolore. Aliquip veniam dolore dolor proident occaecat. Laboris quis dolor laborum aute adipisicing Lorem exercitation tempor et.\r\n",
+    //         "registered": "2016-11-29T09:20:56 -07:00",
+    //         "latitude": 47.155874,
+    //         "longitude": -23.39247,
+    //         "tags": [
+    //             "et",
+    //             "Lorem",
+    //             "ut",
+    //             "id",
+    //             "aute",
+    //             "ex",
+    //             "est"
+    //         ],
+    //         "friends": [
+    //             {
+    //                 "id": 0,
+    //                 "name": "Kasey Hanson"
+    //             },
+    //             {
+    //                 "id": 1,
+    //                 "name": "Barlow Mccarthy"
+    //             },
+    //             {
+    //                 "id": 2,
+    //                 "name": "Marguerite Smith"
+    //             }
+    //         ],
+    //         "greeting": "Hello, Crosby Bond! You have 1 unread messages.",
+    //         "favoriteFruit": "banana"
+    //     },
+    //     {
+    //         "_id": "61a97072f188db3361f29988",
+    //         "index": 1,
+    //         "guid": "d10f7017-9e03-4248-9496-3bf4b99ba9a5",
+    //         "isActive": true,
+    //         "balance": "$3,051.22",
+    //         "picture": "http://placehold.it/32x32",
+    //         "age": 34,
+    //         "eyeColor": "green",
+    //         "name": "Middleton Bright",
+    //         "gender": "male",
+    //         "company": "ZAPHIRE",
+    //         "email": "middletonbright@zaphire.com",
+    //         "phone": "+1 (919) 578-2805",
+    //         "address": "334 Little Street, Mooresburg, Vermont, 7320",
+    //         "about": "Do ipsum adipisicing sint ad exercitation incididunt sint esse elit magna quis occaecat dolor. Fugiat id do aute cillum culpa deserunt duis enim velit nulla officia. Qui aute Lorem consectetur adipisicing nostrud in. Non laboris deserunt deserunt laboris ut cupidatat adipisicing commodo nulla eu est adipisicing labore.\r\n",
+    //         "registered": "2017-07-26T05:26:25 -07:00",
+    //         "latitude": -45.020082,
+    //         "longitude": 0.324357,
+    //         "tags": [
+    //             "excepteur",
+    //             "ipsum",
+    //             "do",
+    //             "aliqua",
+    //             "ullamco",
+    //             "et",
+    //             "fugiat"
+    //         ],
+    //         "friends": [
+    //             {
+    //                 "id": 0,
+    //                 "name": "Lara Horn"
+    //             },
+    //             {
+    //                 "id": 1,
+    //                 "name": "Shannon Myers"
+    //             },
+    //             {
+    //                 "id": 2,
+    //                 "name": "Rosalind Roach"
+    //             }
+    //         ],
+    //         "greeting": "Hello, Middleton Bright! You have 9 unread messages.",
+    //         "favoriteFruit": "apple"
+    //     },
+    //     {
+    //         "_id": "61a970727022638e3a6824f6",
+    //         "index": 2,
+    //         "guid": "df01a4c7-9f62-4881-862c-a9a905dec0f3",
+    //         "isActive": true,
+    //         "balance": "$2,494.44",
+    //         "picture": "http://placehold.it/32x32",
+    //         "age": 27,
+    //         "eyeColor": "green",
+    //         "name": "Gay Montoya",
+    //         "gender": "female",
+    //         "company": "POWERNET",
+    //         "email": "gaymontoya@powernet.com",
+    //         "phone": "+1 (957) 560-2619",
+    //         "address": "725 Leonora Court, Fredericktown, Washington, 6923",
+    //         "about": "Voluptate aliquip duis eu Lorem aliquip anim velit aute Lorem elit reprehenderit. Consectetur commodo deserunt consequat irure mollit. Consequat non in fugiat sint. Ut sit ipsum ut amet nostrud dolor dolor anim ea. Quis officia id voluptate commodo aliquip laborum. Cillum enim sunt dolore culpa mollit aute minim.\r\n",
+    //         "registered": "2019-09-09T02:31:26 -07:00",
+    //         "latitude": 31.147694,
+    //         "longitude": 30.295417,
+    //         "tags": [
+    //             "ea",
+    //             "deserunt",
+    //             "amet",
+    //             "veniam",
+    //             "incididunt",
+    //             "non",
+    //             "occaecat"
+    //         ],
+    //         "friends": [
+    //             {
+    //                 "id": 0,
+    //                 "name": "Stuart Melton"
+    //             },
+    //             {
+    //                 "id": 1,
+    //                 "name": "Justine Prince"
+    //             },
+    //             {
+    //                 "id": 2,
+    //                 "name": "Hull Mayer"
+    //             }
+    //         ],
+    //         "greeting": "Hello, Gay Montoya! You have 8 unread messages.",
+    //         "favoriteFruit": "strawberry"
+    //     },
+    //     {
+    //         "_id": "61a97072bcfb6c669c394ad5",
+    //         "index": 3,
+    //         "guid": "de4615bc-5eb5-4388-a1ad-bcb42ae4d86b",
+    //         "isActive": true,
+    //         "balance": "$3,721.26",
+    //         "picture": "http://placehold.it/32x32",
+    //         "age": 20,
+    //         "eyeColor": "blue",
+    //         "name": "Nettie Henderson",
+    //         "gender": "female",
+    //         "company": "SENMEI",
+    //         "email": "nettiehenderson@senmei.com",
+    //         "phone": "+1 (992) 586-2254",
+    //         "address": "971 Delmonico Place, Elizaville, Oregon, 9773",
+    //         "about": "Anim non amet duis officia irure. Do Lorem dolor ullamco enim excepteur esse qui cillum fugiat qui magna. Velit adipisicing occaecat sit irure adipisicing.\r\n",
+    //         "registered": "2021-11-15T04:21:30 -07:00",
+    //         "latitude": -68.845485,
+    //         "longitude": -171.111551,
+    //         "tags": [
+    //             "incididunt",
+    //             "ad",
+    //             "eu",
+    //             "est",
+    //             "duis",
+    //             "ad",
+    //             "in"
+    //         ],
+    //         "friends": [
+    //             {
+    //                 "id": 0,
+    //                 "name": "Santiago York"
+    //             },
+    //             {
+    //                 "id": 1,
+    //                 "name": "Nixon Reeves"
+    //             },
+    //             {
+    //                 "id": 2,
+    //                 "name": "Stacey Hunter"
+    //             }
+    //         ],
+    //         "greeting": "Hello, Nettie Henderson! You have 3 unread messages.",
+    //         "favoriteFruit": "banana"
+    //     },
+    //     {
+    //         "_id": "61a97072e8a725ad2836496c",
+    //         "index": 4,
+    //         "guid": "84400378-0245-4edc-bb60-134b18dc58a4",
+    //         "isActive": false,
+    //         "balance": "$2,901.09",
+    //         "picture": "http://placehold.it/32x32",
+    //         "age": 21,
+    //         "eyeColor": "blue",
+    //         "name": "Gretchen Graham",
+    //         "gender": "female",
+    //         "company": "SOLGAN",
+    //         "email": "gretchengraham@solgan.com",
+    //         "phone": "+1 (963) 591-3576",
+    //         "address": "345 Vernon Avenue, Lafferty, Delaware, 5060",
+    //         "about": "Laborum quis aliquip laboris esse tempor commodo tempor. Laboris do id velit culpa. Nostrud cupidatat est voluptate laboris aute enim reprehenderit qui irure ex aute commodo. Consectetur eiusmod adipisicing duis duis sunt nulla anim velit nostrud ullamco sint enim tempor. Magna eu irure velit laboris ex reprehenderit eu magna fugiat enim incididunt culpa. Cupidatat irure dolore commodo velit consectetur consequat aliqua.\r\n",
+    //         "registered": "2016-07-16T08:23:21 -07:00",
+    //         "latitude": 14.610481,
+    //         "longitude": -112.309716,
+    //         "tags": [
+    //             "laborum",
+    //             "fugiat",
+    //             "enim",
+    //             "enim",
+    //             "duis",
+    //             "ea",
+    //             "ut"
+    //         ],
+    //         "friends": [
+    //             {
+    //                 "id": 0,
+    //                 "name": "Tammi Sosa"
+    //             },
+    //             {
+    //                 "id": 1,
+    //                 "name": "Hurst Bray"
+    //             },
+    //             {
+    //                 "id": 2,
+    //                 "name": "Deborah Kinney"
+    //             }
+    //         ],
+    //         "greeting": "Hello, Gretchen Graham! You have 5 unread messages.",
+    //         "favoriteFruit": "apple"
+    //     }
+    // ]
+    //
+    // function PostItem({
+    //                       img,
+    //                       title,
+    //                       desc,
+    //                       published,
+    //                       onClick = () => {
+    //                       }
+    //                   }) {
+    //     return (
+    //         <div className="post-item">
+    //             <img src={img} alt={title}/>
+    //             <h2
+    //                 onClick={() => onClick(title)}
+    //                 className="post-title">
+    //                 {title}
+    //             </h2>
+    //             <p className="post-desc">{desc}</p>
+    //             <p className="post-published">{published}</p>
+    //         </div>
+    //     )
+    // }
+    //
+    // function Button({name}) {
+    //     return (
+    //         <button
+    //             onClick={(event) => {
+    //                 console.log(event.target)
+    //             }}>
+    //             {name}
+    //         </button>
+    //     )
+    // }
+    //
+    // function App() {
+    //     // use Callback
+    //     const handleClick = (item) => {
+    //         console.log(item)
+    //     }
+    //     return (
+    //         <div id="wrapper">
+    //             <Button name='Click me'/>
+    //             {course.map((item, index) =>
+    //                 <PostItem
+    //                     onClick={handleClick}
+    //                     key={index}
+    //                     img={item.picture}
+    //                     title={item.name}
+    //                     desc={item.about}
+    //                     published={item.address}
+    //                 />
+    //             )}
+    //         </div>
+    //     )
+    // }
+    //
+    // ReactDOM.render(<App/>, document.getElementById('root'));
+    // --------------------------------------End DOM Event, JSX
+
+    // -----------------------------------------Create Component flexible
+    const Form = {
+        Input() {
+            return <input/>
+        },
+        Checkbox() {
+            return <input type="checkbox"/>
+        }
+    }
+
+    function Button ({title, href, onClick}) {
+        let Component = 'button';
+        const props = {}
+        if(href){
+            Component = 'a'
+            props.href = href
+            props.target='_blank'
+        }
+        if(onClick) {
+            props.onClick = onClick
+        }
         return (
-            <div className="post-item">
-                <img src={img} alt={title}/>
-                <h2 className="post-title">{title}</h2>
-                <p className="post-desc">{desc}</p>
-                <p className="post-published">{published}</p>
-            </div>
+            <Component {...props}>{title}</Component>
         )
     }
 
     function App() {
+        const type = 'Checkbox';
+        const Component = Form[type];
         return (
             <div id="wrapper">
-                <PostItem
-                    callback
-                    img='https://via.placeholder.com/150'
-                    title='Lorem ipsum dolor sit amet'
-                    desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda atque dignissimos earum ex in libero minima modi nesciunt perspiciatis recusandae temporibus voluptates. Architecto aut blanditiis in modi nam quibusdam'
-                    published='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic natus perspiciatis quo sit sunt voluptatem! At beatae commodi, debitis dolorem eos esse eveniet ipsa magni quidem repellat tempore'
-                />
-                <hr/>
-                <PostItem
-                    img='https://via.placeholder.com/150'
-                    title='Lorem ipsum dolor sit amet'
-                    desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda atque dignissimos earum ex in libero minima modi nesciunt perspiciatis recusandae temporibus voluptates. Architecto aut blanditiis in modi nam quibusdam'
-                    published='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic natus perspiciatis quo sit sunt voluptatem! At beatae commodi, debitis dolorem eos esse eveniet ipsa magni quidem repellat tempore'
-                />
-                <hr/>
-                <PostItem
-                    img='https://via.placeholder.com/150'
-                    title='Lorem ipsum dolor sit amet'
-                    desc='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda atque dignissimos earum ex in libero minima modi nesciunt perspiciatis recusandae temporibus voluptates. Architecto aut blanditiis in modi nam quibusdam'
-                    published='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur doloremque hic natus perspiciatis quo sit sunt voluptatem! At beatae commodi, debitis dolorem eos esse eveniet ipsa magni quidem repellat tempore'
+                <Component/>
+                <Button
+                title="Click me"
+                href='https://google.com'
+                onClick={() => console.log('hauphvn')}
                 />
             </div>
         )
     }
 
     ReactDOM.render(<App/>, document.getElementById('root'));
-    // -----------------------------------End Props
+    // -----------------------------------------End Create Component flexible
 
 </script>
 </body>
